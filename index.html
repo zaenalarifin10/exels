@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form Data</title>
+<title>Form Data Diri</title>
 </head>
 <body>
 <h2>Form Data Diri</h2>
@@ -41,8 +41,8 @@ form.addEventListener('submit', async (e) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
-  // Ganti URL webhook make.com kamu di bawah
-  const webhookURL = 'https://hook.make.com/xxxxxxxxxxxx';
+  // URL Webhook Make.com kamu
+  const webhookURL = 'https://hook.eu2.make.com/oqspgnvsp75nogql9j5rtmcurikrirnw';
 
   try {
     const response = await fetch(webhookURL, {
@@ -50,7 +50,7 @@ form.addEventListener('submit', async (e) => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)
     });
-    if(response.ok) alert('Data berhasil dikirim!');
+    if(response.ok) alert('Data berhasil dikirim ke Sheet!');
     else alert('Gagal kirim data.');
   } catch (err) {
     alert('Error: ' + err);
