@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Data</title>
+</head>
+<body>
+<h2>Form Data Diri</h2>
+<form id="dataForm">
+  <label>Nama:</label><br>
+  <input type="text" name="nama" required><br><br>
+
+  <label>Umur:</label><br>
+  <input type="number" name="umur" required><br><br>
+
+  <label>Hobi:</label><br>
+  <input type="text" name="hobi"><br><br>
+
+  <label>Email:</label><br>
+  <input type="email" name="email"><br><br>
+
+  <label>Alamat:</label><br>
+  <input type="text" name="alamat"><br><br>
+
+  <label>Jenis Kelamin:</label><br>
+  <select name="gender">
+    <option value="Pria">Pria</option>
+    <option value="Wanita">Wanita</option>
+    <option value="Lainnya">Lainnya</option>
+  </select><br><br>
+
+  <button type="submit">Kirim</button>
+</form>
+
+<script>
+const form = document.getElementById('dataForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // Ganti URL webhook make.com kamu di bawah
+  const webhookURL = 'https://hook.make.com/xxxxxxxxxxxx';
+
+  try {
+    const response = await fetch(webhookURL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    if(response.ok) alert('Data berhasil dikirim!');
+    else alert('Gagal kirim data.');
+  } catch (err) {
+    alert('Error: ' + err);
+  }
+});
+</script>
+
+</body>
+</html>
