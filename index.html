@@ -4,34 +4,113 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Form Data Diri</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  .form-container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2f3640;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #353b48;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+
+  input:focus,
+  select:focus {
+    border-color: #4cd137;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 209, 55, 0.3);
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #4cd137;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #44bd32;
+  }
+
+  @media(max-width: 500px){
+    .form-container {
+      padding: 25px 20px;
+    }
+  }
+</style>
 </head>
 <body>
-<h2>Form Data Diri</h2>
-<form id="dataForm">
-  <label>Nama:</label><br>
-  <input type="text" name="nama" required><br><br>
 
-  <label>Umur:</label><br>
-  <input type="number" name="umur" required><br><br>
+<div class="form-container">
+  <h2>Form Data Diri</h2>
+  <form id="dataForm">
+    <label>Nama:</label>
+    <input type="text" name="nama" required>
 
-  <label>Hobi:</label><br>
-  <input type="text" name="hobi"><br><br>
+    <label>Umur:</label>
+    <input type="number" name="umur" required>
 
-  <label>Email:</label><br>
-  <input type="email" name="email"><br><br>
+    <label>Hobi:</label>
+    <input type="text" name="hobi">
 
-  <label>Alamat:</label><br>
-  <input type="text" name="alamat"><br><br>
+    <label>Email:</label>
+    <input type="email" name="email">
 
-  <label>Jenis Kelamin:</label><br>
-  <select name="gender">
-    <option value="Pria">Pria</option>
-    <option value="Wanita">Wanita</option>
-    <option value="Lainnya">Lainnya</option>
-  </select><br><br>
+    <label>Alamat:</label>
+    <input type="text" name="alamat">
 
-  <button type="submit">Kirim</button>
-</form>
+    <label>Jenis Kelamin:</label>
+    <select name="gender">
+      <option value="Pria">Pria</option>
+      <option value="Wanita">Wanita</option>
+      <option value="Lainnya">Lainnya</option>
+    </select>
+
+    <button type="submit">Kirim</button>
+  </form>
+</div>
 
 <script>
 const form = document.getElementById('dataForm');
